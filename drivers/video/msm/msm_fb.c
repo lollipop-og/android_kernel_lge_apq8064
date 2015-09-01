@@ -237,7 +237,7 @@ static void msm_fb_set_bl_brightness(struct led_classdev *led_cdev,
 	struct msm_fb_data_type *mfd = dev_get_drvdata(led_cdev->dev->parent);
 	int bl_lvl;
 
-#if defined(CONFIG_BACKLIGHT_LM3530) || defined(CONFIG_BACKLIGHT_LM3533) || defined(CONFIG_BACKLIGHT_LM3532) || defined (CONFIG_BACKLIGHT_LP855X) || defined (CONFIG_BACKLIGHT_I2C_BL) || defined (CONFIG_BACKLIGHT_LM3630)
+#if defined(CONFIG_BACKLIGHT_LM3530)
 	bl_lvl = value;
 #else /* QCT Original */
 	/* This maps android backlight level 1 to 255 into

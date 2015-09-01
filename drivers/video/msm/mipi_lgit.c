@@ -105,13 +105,16 @@ out:
 	return ret;
 }
 
-//static 
+//static
 int mipi_lgit_lcd_on(struct platform_device *pdev)
 {
 	struct msm_fb_data_type *mfd;
 	int ret = 0;
 
 	pr_info("%s:+ wxga \n", __func__);
+
+	if (mipi_lgit_pdata->bl_pwm_disable)
+		mipi_lgit_pdata->bl_pwm_disable();
 
 	mfd = platform_get_drvdata(pdev);
 	if (!mfd)
@@ -221,6 +224,11 @@ static int mipi_lgit_backlight_on_status(void)
 {
 	//FIX_ME
 	return 0;//(mipi_lgit_pdata->bl_on_status());
+}
+
+static int mipi_lgit_backlight_on_status(void)
+{
+	return (mipi_lgit_pdata->bl_on_status());
 }
 
 static void mipi_lgit_set_backlight_board(struct msm_fb_data_type *mfd)
