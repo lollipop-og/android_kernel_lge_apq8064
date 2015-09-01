@@ -226,11 +226,6 @@ static int mipi_lgit_backlight_on_status(void)
 	return 0;//(mipi_lgit_pdata->bl_on_status());
 }
 
-static int mipi_lgit_backlight_on_status(void)
-{
-	return (mipi_lgit_pdata->bl_on_status());
-}
-
 static void mipi_lgit_set_backlight_board(struct msm_fb_data_type *mfd)
 {
 	int level;
